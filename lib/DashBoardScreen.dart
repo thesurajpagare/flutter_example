@@ -9,8 +9,11 @@ class DashBoardScreen extends StatelessWidget {
     child:new Scaffold(
       appBar: AppBar(title:Text("DashBoard"),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back,color: Colors.white), onPressed: () {
-            SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+            icon: Icon(Icons.arrow_back,color: Colors.white),
+            onPressed: () {
+              Future.delayed(const Duration(milliseconds: 1000), () {
+                SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+              });
           },
           ),
       ),

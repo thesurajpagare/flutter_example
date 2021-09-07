@@ -83,6 +83,7 @@ class SplashScreenState extends State<MyHomePage> {
             image:AssetImage('images/freightseek.png'),
          width: 300,
           height: 300,
+            fit:BoxFit.fill
           //child:FlutterLogo(size:MediaQuery.of(context).size.height)
         )
     );
