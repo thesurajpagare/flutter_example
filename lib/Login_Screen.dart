@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'DashBoardScreen.dart';
 import 'package:http/http.dart' as http;
@@ -38,11 +39,12 @@ class _State extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return
 
-      Scaffold(
+    return new WillPopScope(
+      child:new Scaffold(
         appBar: AppBar(
           title: Text('Login Screen'),
+          automaticallyImplyLeading: false,
         ),
         body: Padding(
             padding: EdgeInsets.all(10),
@@ -128,8 +130,19 @@ class _State extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                     ))
               ],
-            )));
-    
+            )
+    )
+
+      ),
+        onWillPop: () async {
+          Future.delayed(const Duration(milliseconds: 1000), () {
+            SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+          });
+      return false;
+    },
+
+    );
+
   }
 
 }
