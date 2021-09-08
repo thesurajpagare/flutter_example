@@ -274,7 +274,7 @@ Future<String> getLoginCheck(
       // Navigator.of(ctx,rootNavigator: true).pop();
       Navigator.pushReplacement(
         ctx,
-        MaterialPageRoute(builder: (context) => DashBoardScreen()),
+        MaterialPageRoute(builder: (context) => DashBoardScreenPage()),
       );
 
       /* print("in future class 200 " + dataGUID["GUID"]);
