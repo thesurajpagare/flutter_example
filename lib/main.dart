@@ -81,8 +81,8 @@ class SplashScreenState extends State<MyHomePage> {
         color: Colors.white,
         child: Image(
             image:AssetImage('images/freightseek.png'),
-         width: 300,
-          height: 300,
+         width: 150,
+          height: 150,
             fit:BoxFit.fill
           //child:FlutterLogo(size:MediaQuery.of(context).size.height)
         )
@@ -109,7 +109,8 @@ Future<String> fetchAlbum(BuildContext ctx) async {
   var jsonBody = { 'GUID': 'NEW'};
   Map<String, String> headers = {"Content-type": "application/x-www-form-urlencoded"};
   var baseUrl = 'http://acmeitservices.com/projects/freightseek/api/';
-  final uri = Uri.parse("https://acmeitsolutions.net/projects/freightseek/api/registerDevice");
+  //final uri = Uri.parse("https://acmeitsolutions.net/projects/freightseek/api/registerDevice");
+  final uri = Uri.parse("https://acmeitsolutions.net/fs/qa/api/registerDevice");
   final response = await http.post(uri, headers: headers, body: jsonBody);
   print("in future class after api"+response.body);
   if (response.statusCode == 200) {

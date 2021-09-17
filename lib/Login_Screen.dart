@@ -168,7 +168,9 @@ Future<String> getLogin(
     "Content-type": "application/x-www-form-urlencoded"
   };
   final uri =
-      Uri.parse("https://acmeitsolutions.net/projects/freightseek/api/login");
+    //  Uri.parse("https://acmeitsolutions.net/projects/freightseek/api/login");
+  Uri.parse("https://acmeitsolutions.net/fs/qa/api/login");
+  print("in future class after api===");
   final response = await http.post(uri, headers: headers, body: jsonBody);
   print("in future class after api" + response.body);
 
@@ -243,7 +245,8 @@ Future<String> getLoginCheck(
     "Content-type": "application/x-www-form-urlencoded"
   };
   final uri = Uri.parse(
-      "https://acmeitsolutions.net/projects/freightseek/api/loginCheck");
+     // "https://acmeitsolutions.net/projects/freightseek/api/loginCheck");
+     "https://acmeitsolutions.net/fs/qa/api/loginCheck");
   final response = await http.post(uri, headers: headers, body: jsonBody);
   // print("in Logincheck after api"+response.body);
 
@@ -274,26 +277,9 @@ Future<String> getLoginCheck(
       // Navigator.of(ctx,rootNavigator: true).pop();
       Navigator.pushReplacement(
         ctx,
-        MaterialPageRoute(builder: (context) => DashBoardScreenPage()),
+        MaterialPageRoute(builder: (context) => DashBoardScreen()),
       );
 
-      /* print("in future class 200 " + dataGUID["GUID"]);
-      String Userid = jsonObjectUser.getString("Userid");
-      String Mobile = jsonObjectUser.getString("Mobile");
-      String Name = jsonObjectUser.getString("Name");
-      String user_type = jsonObjectUser.getString("user_type");
-
-
-      String Email = jsonObjectUser.getString("Email");
-
-      String AccesToken = jsonObjectUser.getString("AccessToken");
-      if (jsonObjectUser.has("member_status")) {
-        String member_status = jsonObjectUser.getString("member_status");
-        if (user_type.trim().equalsIgnoreCase("carrier")) {
-          System.out.println("car===" + member_status);
-          sessionManager.setTransporterStatus(member_status);
-        }
-      }*/
 
     } else if (data["ResponseCode"] == "400") {
       //  _showMyDialog(ctx,data["Message"],);
